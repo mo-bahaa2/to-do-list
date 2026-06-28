@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إنجازاتك يا بطل - يلا بينا</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lalezar&family=Lemonada:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <div>
+                <h1>وراك إيه النهارده؟ 📝</h1>
+                <p>يلا نخلص المهام دي عشان نفصل بقى!</p>
+            </div>
+            <button id="shareBtn" class="icon-btn" aria-label="مشاركة" title="شير إنجازاتك">
+                <i class="fas fa-share-alt"></i>
+            </button>
+        </header>
+
+        <section class="sound-selection">
+            <button id="openSoundModal" class="sound-btn">
+                <i class="fas fa-music"></i>
+                <span id="currentSoundLabel">طريقة الاحتفال: تسقيف</span>
+            </button>
+        </section>
+
+        <main>
+            <form id="taskForm" class="add-task-card glass-panel">
+                <div class="input-group">
+                    <input type="text" id="taskInput" placeholder="ناوي تنجز إيه النهارده؟ (اكتب هنا وابدأ)" required autocomplete="off">
+                </div>
+                
+                <div class="duration-selector">
+                    <p class="selector-title">محتاجة وقت قد إيه؟</p>
+                    <div class="chips">
+                        <label class="chip">
+                            <input type="radio" name="duration" value="30" checked>
+                            <span>نصاية خفيفة</span>
+                        </label>
+                        <label class="chip">
+                            <input type="radio" name="duration" value="60">
+                            <span>ساعة زمن</span>
+                        </label>
+                        <label class="chip">
+                            <input type="radio" name="duration" value="120">
+                            <span>ساعتين تركيز</span>
+                        </label>
+                        <label class="chip">
+                            <input type="radio" name="duration" value="180">
+                            <span>٣ ساعات شغل</span>
+                        </label>
+                        <label class="chip">
+                            <input type="radio" name="duration" value="240">
+                            <span>٤ ساعات بالتمام</span>
+                        </label>
+                        <label class="chip">
+                            <input type="radio" name="duration" value="300">
+                            <span>٥ ساعات كفاح</span>
+                        </label>
+                    </div>
+                </div>
+
+                <button type="submit" class="primary-btn">
+                    <i class="fas fa-plus"></i> ضيفها للقائمة يلا
+                </button>
+            </form>
+
+            <div class="tasks-container">
+                <div class="tasks-header">
+                    <h2>المهام اللي مستنياك</h2>
+                    <span class="task-count" id="taskCount">0</span>
+                </div>
+                <ul id="taskList" class="task-list">
+                    <!-- Tasks will be injected here via JS -->
+                </ul>
+            </div>
+        </main>
+    </div>
+
+    <!-- Sound Selection Modal -->
+    <div id="soundModal" class="modal-overlay">
+        <div class="modal-content glass-panel">
+            <div class="modal-header">
+                <h2>تحب نحتفل بيك إزاي؟ 🎵</h2>
+                <button id="closeModal" class="icon-btn"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="sound-grid">
+                <!-- Sound Option 1 -->
+                <div class="sound-card selected" data-sound="clap">
+                    <div class="sound-icon">👏</div>
+                    <h3>تسقيف</h3>
+                    <p>عاش يا وحش</p>
+                    <div class="check-icon"><i class="fas fa-check"></i> اختيار ممتاز</div>
+                </div>
+                <!-- Sound Option 2 -->
+                <div class="sound-card" data-sound="bravo">
+                    <div class="sound-icon"><img src="img/برافو عليك.png" alt="برافو عليك"></div>
+                    <h3>برافووو عليك</h3>
+                    <p>مدحت شلبي</p>
+                    <div class="check-icon"><i class="fas fa-check"></i> اختيار ممتاز</div>
+                </div>
+                <!-- Sound Option 3 -->
+                <div class="sound-card" data-sound="yalla">
+                    <div class="sound-icon"><img src="img/يلا بينا.png" alt="يلا بينا"></div>
+                    <h3>يلااا بينااا</h3>
+                    <p>حماس</p>
+                    <div class="check-icon"><i class="fas fa-check"></i> اختيار ممتاز</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Canvas Confetti for celebrations -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
